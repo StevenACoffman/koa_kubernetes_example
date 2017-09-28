@@ -1,0 +1,24 @@
+{
+  "name": "koa_kubernetes_example",
+  "version": "1.0.0",
+  "description": "Simple example of kubernetes koa2",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "lint": "eslint server",
+    "test": "echo \"No test in this example\" && exit 0"
+  },
+  "keywords": [
+    "koa",
+    "koa2",
+    "kubernetes",
+    "k8s",
+    "async",
+    "await"
+  ],
+  "author": "Steve Coffman",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.3.0"
+  }
+}
