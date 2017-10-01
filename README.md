@@ -11,4 +11,4 @@ Apply this to your Kubernetes cluster (Note: cluster not included):
 kubectl apply -f koa-example.yaml
 ```
 
-Todo: Add prometheus monitoring
+Todo: Add prometheus monitoring using [this example](https://github.com/RisingStack/example-prometheus-nodejs/blob/master/src/server.js)

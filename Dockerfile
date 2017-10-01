@@ -7,10 +7,9 @@ WORKDIR /usr/src/app
 
 
 # replace this with your application's default port
-EXPOSE 8888
 ENV PORT 8888
 
-EXPOSE 8888
+EXPOSE ${PORT}
 
 # Install dependencies first, add code later: docker is caching by layers
 # COPY .npmrc .npmrc
