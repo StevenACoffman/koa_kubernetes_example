@@ -2,14 +2,10 @@
 FROM node:alpine
 
 
-# Create app directory
+# Create directory if it doesn't exist, 
 WORKDIR /usr/src/app
 
 
-# replace this with your application's default port
-ENV PORT 8888
-
-EXPOSE ${PORT}
 
 # Install dependencies first, add code later: docker is caching by layers
 # COPY .npmrc .npmrc
@@ -23,15 +19,28 @@ RUN npm install
 # Add your source files
 COPY . .
 
+# Avoid leaking credentials to private npm registries
 RUN rm -f .npmrc
 
 
-ARG GIT_COMMIT=unknown
-LABEL git-commit=$GIT_COMMIT
-ARG GIT_BRANCH=unknown
-LABEL git-branch=$GIT_BRANCH
-ARG BUILD_TIME=unknown
-LABEL build_time=$BUILD_TIME
+ARG GIT_REPO="unknown"
+ARG GIT_COMMIT="unknown"
+ARG GIT_BRANCH="unknown"
+ARG BUILD_TIME="unknown"
+
+LABEL name="Koa Kubernetes Example" \
+  maintainer="StevenACoffman" \
+  git-repo="$GIT_REPO" \
+  git-commit="$GIT_COMMIT" \
+  git-branch="$GIT_BRANCH" \
+  version="$GIT_COMMIT" \
+  build_time="$BUILD_TIME" \
+  description="Example Flask app with Prometheus for Kubernetes"
+
+# replace this with your application's default port
+ENV PORT 8888
+
+EXPOSE ${PORT}
 
 # Silent start because we want to have our log format as the first log
 CMD ["npm", "start", "-s"]

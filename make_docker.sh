@@ -30,6 +30,7 @@ REPOSITORY="${REGISTRY}/${REPOSITORY_NAMESPACE}/${IMAGE_NAME}"
 # A docker tag name must be valid ASCII and may contain lowercase and uppercase letters,
 # digits, underscores, periods and dashes.
 # A docker tag name may not start with a period or a dash and may contain a maximum of 128 characters.
+GIT_REPO="$(basename "$(git config --get remote.origin.url)" | cut -f 1 -d '.')"
 GIT_BRANCH=$(git rev-parse --abbrev-ref HEAD | sed 's/[^\w.-]+//g')
 GIT_REVISION=$(git rev-parse HEAD)
 BUILD_TIME=$(date +'%s')
@@ -51,6 +52,7 @@ else
         -t "${REPOSITORY}:${GIT_REVISION}" \
         -t "${REPOSITORY}:latest" \
         -t "${REPOSITORY}:${GIT_BRANCH}" \
+        --build-arg "GIT_REPO=${GIT_REPO}" \
         --build-arg "GIT_BRANCH=${GIT_BRANCH}" \
         --build-arg "BUILD_TIME=${BUILD_TIME}" \
         --build-arg "GIT_COMMIT=${GIT_REVISION}" \
