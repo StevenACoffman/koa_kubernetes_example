@@ -1,10 +1,13 @@
 {
   "name": "koa_kubernetes_example",
+  "private": true,
   "version": "1.0.0",
-  "description": "Simple example of kubernetes koa2",
+  "description": "Simple example of kubernetes koa2 with prometheus metrics",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
+    "dev-docker": "../node_modules/nodemon/bin/nodemon.js --debug=5858",
+    "dev-host": "nodemon --debug=5858",
     "lint": "eslint server",
     "test": "echo \"No test in this example\" && exit 0"
   },
@@ -20,5 +23,8 @@
   "license": "ISC",
   "dependencies": {
     "koa": "^2.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
   }
 }
