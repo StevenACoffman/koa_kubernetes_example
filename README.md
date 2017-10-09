@@ -1,7 +1,9 @@
 # koa_kubernetes_example
 Simple Kubernetes Koa2 Node.js Docker application
 
-+ Incorporates the many good ideas in [node-docker-good-defaults](https://github.com/BretFisher/node-docker-good-defaults/)
++ Incorporates the many good ideas in [node-docker-good-defaults](https://github.com/BretFisher/node-docker-good-defaults/) and Adrian Mouat's [Tricks Of The Captains](https://container-solutions.com/content/uploads/2017/04/TricksOfTheCaptains-2.pdf)
+
+### TL;DR version
 Run this locally in docker:
 ```bash
 docker run -p 8888:8888 stevenacoffman/koa_kubernetes_example
@@ -45,7 +47,7 @@ Todo: Add prometheus monitoring using [this example](https://github.com/RisingSt
  - You use `docker-compose` for local development only (docker-compose was never intended to be a production deployment tool anyway).
  - The `docker-compose.yml` is not meant for `docker stack deploy` in Docker 1.13, it's meant for happy local development.
 
- 
+
 ### Getting Started
 
 If this was your Node.js app, to start local development you would:
